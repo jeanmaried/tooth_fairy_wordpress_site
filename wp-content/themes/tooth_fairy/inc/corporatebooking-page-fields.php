@@ -1,19 +1,19 @@
-front-page-fields.php
+page-corporate-booking.php
 <?php
-add_action( 'cmb2_admin_init', 'cmb2_sample_metaboxes', 'cmb2_sample' );
+add_action( 'cmb2_admin_init', 'cmb2_corporate_booking');
 /**
  * Define the metabox and field configurations.
  */
-function cmb2_sample_metaboxes() {
+function cmb2_corporate_booking() {
 
 	// Start with an underscore to hide fields from custom fields list
-	$prefix = '_yourprefix_';
+	$prefix = '_corporate_';
 
 $cmb = new_cmb2_box( array(
-    'id'           => 'info',
-    'title'        => 'Why choose GTA Tooth Fairy?',
+    'id'           => 'corporate',
+    'title'        => 'Corporate Booking',
     'object_types' => array( 'page' ), // post type
-    'show_on'      => array( 'key' => 'page-template', 'value' => 'front-page.php' ),
+    'show_on'      => array( 'key' => 'page-template', 'value' => 'page-corporate-booking.php' ),
     'context'      => 'normal', //  'normal', 'advanced', or 'side'
     'priority'     => 'default',  //  'high', 'core', 'default' or 'low'
     'show_names'   => true, // Show field names on the left
@@ -33,12 +33,6 @@ $group_field_id = $cmb->add_field( array(
 ) );
 
 $cmb->add_group_field( $group_field_id, array(
-	'name' => 'Entry Image',
-	'id'   => 'image',
-	'type' => 'file',
-) );
-
-$cmb->add_group_field( $group_field_id, array(
 	'name' => 'Entry Title',
 	'id'   => 'title',
 	'type' => 'text',
@@ -46,9 +40,8 @@ $cmb->add_group_field( $group_field_id, array(
 
 $cmb->add_group_field( $group_field_id, array(
 	'name' => 'Description',
-	'description' => 'Write a short description for this entry',
 	'id'   => 'description',
-	'type' => 'textarea_small',
+	'type' => 'text',
 ) );
 
 }?>

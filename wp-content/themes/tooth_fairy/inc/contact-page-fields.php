@@ -1,19 +1,20 @@
-front-page-fields.php
+<?php /* Template Name: contact*/ ?>
+page-contact.php
 <?php
-add_action( 'cmb2_admin_init', 'cmb2_sample_metaboxes', 'cmb2_sample' );
+add_action( 'cmb2_admin_init', 'cmb2_contact', 'cmb2_sample' );
 /**
  * Define the metabox and field configurations.
  */
-function cmb2_sample_metaboxes() {
+function cmb2_contact() {
 
 	// Start with an underscore to hide fields from custom fields list
-	$prefix = '_yourprefix_';
+	$prefix = '_contact_';
 
 $cmb = new_cmb2_box( array(
-    'id'           => 'info',
-    'title'        => 'Why choose GTA Tooth Fairy?',
+    'id'           => 'contact',
+    'title'        => 'Contact',
     'object_types' => array( 'page' ), // post type
-    'show_on'      => array( 'key' => 'page-template', 'value' => 'front-page.php' ),
+    'show_on'      => array( 'key' => 'page-template', 'value' => 'page-contact.php' ),
     'context'      => 'normal', //  'normal', 'advanced', or 'side'
     'priority'     => 'default',  //  'high', 'core', 'default' or 'low'
     'show_names'   => true, // Show field names on the left
@@ -33,22 +34,19 @@ $group_field_id = $cmb->add_field( array(
 ) );
 
 $cmb->add_group_field( $group_field_id, array(
-	'name' => 'Entry Image',
-	'id'   => 'image',
-	'type' => 'file',
-) );
-
-$cmb->add_group_field( $group_field_id, array(
-	'name' => 'Entry Title',
-	'id'   => 'title',
+	'name' => 'Contact information',
+	'id'   => 'dentist-name',
 	'type' => 'text',
 ) );
 
 $cmb->add_group_field( $group_field_id, array(
-	'name' => 'Description',
-	'description' => 'Write a short description for this entry',
-	'id'   => 'description',
-	'type' => 'textarea_small',
+	'name' => 'Phone',
+	'id'   => 'contact-phone-number',
+	'type' => 'text',
 ) );
-
+$cmb->add_group_field( $group_field_id, array(
+	'name' => 'Email',
+	'id'   => 'contact-email',
+	'type' => 'text',
+) );
 }?>

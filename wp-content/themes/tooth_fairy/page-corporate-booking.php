@@ -1,3 +1,4 @@
+<?php /* Template Name: Corporate*/ ?>
 <?php
 get_header(); ?>
 
